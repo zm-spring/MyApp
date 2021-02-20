@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- 手机显示 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+		<!-- 框架 -->
+		<link rel="stylesheet" href="lib/mdui/css/mdui.min.css" />
+		<script src="lib/mdui/js/mdui.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<title>三水</title>
+	</head>
+	<body>
+		<div class="head mdui-typo">
+		  <p>可解析全网VIP视频，其中包括如下</p>
+		  <a href="https://www.youku.com/" target="view_window">优酷</a>
+		  <a href="https://www.iqiyi.com/" target="view_window">爱奇艺</a>
+		  <a href="https://www.mgtv.com/" target="view_window">芒果</a>
+		  <a href="http://www.le.com/" target="view_window">乐视</a>
+		  <a href="https://tv.sohu.com/" target="view_window">搜狐</a>
+		  <a href="https://v.qq.com/" target="view_window">腾讯</a>
+		  <a href="https://www.bilibili.com/" target="view_window">bilibili</a>
+		  ......
+		</div>
+		
+		<div class="mdui-container">
+		  <div class="mdui-textfield mdui-textfield-floating-label">
+		    <label class="mdui-textfield-label">URL</label>
+		    <input class="mdui-textfield-input" type="text" id="url"/>
+			<div class="mdui-textfield-helper">请输入要解析的网址</div>
+		  </div>
+		  <div class="mdui-col">
+			  <select class="mdui-select" mdui-select id="selectUrl">
+				  <option value="1">津桥接口【推荐】</option>
+				  <option value="2">蓝光接口【推荐】</option>
+				  <option value="3">八零接口</option>
+				  <option value="4">古斯接口</option>
+				  <option value="5">欧克接口</option>
+			  </select>
+			  <button class="mdui-btn mdui-color-indigo mdui-ripple" onclick="parsing()">解析</button>
+		  </div>
+		</div>
+		<div id="video">
+			<iframe id="myVideo" height="200px" width="90%" frameborder="0" src="" allowfullscreen="" scrolling="no" align="center"></iframe>
+		</div>
+	</body>
+	<script>
+		function parsing(){
+			let url = $("#url").val();
+			switch ($("#selectUrl").val()) {
+				case "1" : $("#myVideo").attr('src',"http://jqaaa.com/jx.php?url="+url)
+					break;
+				case "2" : $("#myVideo").attr('src',"https://www.murl.us/?url="+url)
+					break;
+				case "3" : $("#myVideo").attr('src',"https://www.8090.la/api/?url="+url)
+					break;
+				case "4" : $("#myVideo").attr('src',"http://jx.quanmingjiexi.com/?url="+url)
+					break;
+				case "5" : $("#myVideo").attr('src',"https://okjx.cc/?url="+url)
+					break;
+
+			}
+			$("#video").css("display","block");
+		}
+	</script>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#myVideo{
+			margin: 20px 0;
+		}
+		#video{
+			text-align: center;
+			display: none;
+		}
+		.head{
+			margin-top: 20px;
+			margin-left: 20px;
+		}
+		.mdui-col{
+			text-align: center;
+		}
+		.mdui-select{
+			margin: 2px 10px;
+		}
+	</style>
+</html>
